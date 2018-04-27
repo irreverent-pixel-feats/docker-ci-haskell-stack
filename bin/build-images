@@ -7,7 +7,8 @@ VERSION="${3:?"The version"}"
 cat "bin/build-matrix" | while IFS="_" read -r -a cells; do
   GHC_VERSION="${cells[0]}"
   CABAL_VER="${cells[1]}"
+  STACK_VER="${cells[2]}"
 
-  bin/build-image "${REPO}:${BASE_TAG}" "${GHC_VERSION}" "${CABAL_VER}" "-${VERSION}"
-  bin/build-image "${REPO}:${BASE_TAG}" "${GHC_VERSION}" "${CABAL_VER}" ""
+  bin/build-image "${REPO}:${BASE_TAG}" "${GHC_VERSION}" "${CABAL_VER}" "${STACK_VER}" "-${VERSION}"
+  bin/build-image "${REPO}:${BASE_TAG}" "${GHC_VERSION}" "${CABAL_VER}" "${STACK_VER}" ""
 done

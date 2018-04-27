@@ -3,10 +3,11 @@
 TAG_PREFIX="${1:?"The tag prefix"}"
 GHC_VER="${2:?"The version of GHC to install"}"
 CABAL_VER="${3:?"The version of cabal to install"}"
-VERSION="${4:?"The suffix to mark the version"}"
+STACK_VER="${4:?"The version of stack to install"}"
+VERSION="${5:?"The suffix to mark the version"}"
 
-TAG1="${TAG_PREFIX}-${GHC_VER}_${CABAL_VER}"
-TAG2="${TAG_PREFIX}-${GHC_VER}_${CABAL_VER}-${VERSION}"
+TAG1="${TAG_PREFIX}-${GHC_VER}_${CABAL_VER}_${STACK_VER}"
+TAG2="${TAG1}-${VERSION}"
 
 docker pull "${TAG1}" || true
 
@@ -16,4 +17,5 @@ docker build \
   --tag "${TAG2}" \
   --build-arg "GHC_VERSION=${GHC_VER}" \
   --build-arg "CABAL_VER=${CABAL_VER}" \
+  --build-arg "STACK_VER=${STACK_VER}" \
   .
