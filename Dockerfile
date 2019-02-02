@@ -1,6 +1,6 @@
 ARG GHC_VERSION
 ARG CABAL_VER
-FROM irreverentpixelfeats/ci-haskell:ubuntu_xenial-${GHC_VERSION}_${CABAL_VER}-20180713032912-ce92597
+FROM irreverentpixelfeats/ci-haskell:ubuntu_xenial-${GHC_VERSION}_${CABAL_VER}-20190202063139-7da4b1c
 MAINTAINER Dom De Re <domdere@irreverentpixelfeats.com>
 
 ARG STACK_VER
